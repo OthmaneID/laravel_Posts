@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.left-sidebar {
+    border: 1px solid rgba(0, 0, 0, 0.4) !important;
+}
+.nav {
+    position: absolute;
+    width: 100%;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav > p {
+}
