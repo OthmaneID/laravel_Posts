@@ -379,10 +379,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 [hidden] {
   display: none;
 }
-*, ::before, ::after {
-  --tw-border-opacity: 1;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity));
-}
 .container {
   width: 100%;
 }
@@ -416,20 +412,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     max-width: 1536px;
   }
 }
-.left-0 {
-  left: 0px;
-}
-.top-0 {
-  top: 0px;
-}
-.bottom-0 {
-  bottom: 0px;
-}
-.w-auto {
-  width: auto;
-}
-.w-1\/3 {
-  width: 33.333333%;
+.w-2\/4 {
+  width: 50%;
 }
 .rounded-lg {
   border-radius: 0.5rem;
@@ -437,9 +421,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded-b-lg {
   border-bottom-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
-}
-.border {
-  border-width: 1px;
 }
 .bg-gray-200 {
   --tw-bg-opacity: 1;
@@ -456,9 +437,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-}
-.pt-2 {
-  padding-top: 0.5rem;
 }
 .text-center {
   text-align: center;
@@ -479,11 +457,52 @@ Ensure the default browser behavior of the `hidden` attribute.
 .container {
     position: relative;
     min-height: 100vh;
+    padding-top: 80px;
 }
 
 .left-sidebar {
     border: 1px solid rgba(0, 0, 0, 0.4) !important;
+    padding-top: 10px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    margin-left: -25px;
+    width: 25%;
 }
+
+.left-sidebar > ul {
+    width: 101%;
+}
+.left-sidebar > ul > li {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.left-sidebar > ul > li:hover {
+    color: black;
+    background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+    cursor: pointer;
+}
+.right-sidebar {
+    border: 1px solid rgba(0, 0, 0, 0.4) !important;
+    padding-top: 10px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    margin-right: -25px;
+    width: 25%;
+}
+.right-sidebar > ul > li {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.right-sidebar > ul > li:hover {
+    color: black;
+    background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+    cursor: pointer;
+}
+
 .nav {
     position: absolute;
     width: 100%;

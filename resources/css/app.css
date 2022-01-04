@@ -5,11 +5,52 @@
 .container {
     position: relative;
     min-height: 100vh;
+    padding-top: 80px;
 }
 
 .left-sidebar {
     border: 1px solid rgba(0, 0, 0, 0.4) !important;
+    padding-top: 10px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    margin-left: -25px;
+    width: 25%;
 }
+
+.left-sidebar > ul {
+    width: 101%;
+}
+.left-sidebar > ul > li {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.left-sidebar > ul > li:hover {
+    color: black;
+    background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+    cursor: pointer;
+}
+.right-sidebar {
+    border: 1px solid rgba(0, 0, 0, 0.4) !important;
+    padding-top: 10px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    margin-right: -25px;
+    width: 25%;
+}
+.right-sidebar > ul > li {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.right-sidebar > ul > li:hover {
+    color: black;
+    background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+    cursor: pointer;
+}
+
 .nav {
     position: absolute;
     width: 100%;

@@ -18,7 +18,7 @@
             </a>
         </div>
     </nav>
-    <div class="container pt-2 position-relative">
+    <div class="container">
         @yield('content')
     </div>
     
