@@ -10,14 +10,37 @@
     <title>Posts app</title>
 </head>
 <body class="bg-gray-200">
-    <nav class="nav text-3xl text-light underline bg-blue-500 rounded-b-lg py-3" >
-        <p>Posts Web App</p> 
-        <div class="nav-icons" >
-            <a href="">
-                <i></i>
-            </a>
-        </div>
+
+
+    <nav class="p-6 bg-white flex justify-between mb-6 " >
+        <ul class="flex items-center">
+            <li>
+                <a href="{{ route('posts') }}" class ="p-3">Home</a>
+            </li>
+            <li>
+                <a href="" class ="p-3">Dashboard</a>
+            </li>
+            <li>
+                <a href="" class ="p-3">Post</a>
+            </li>
+        </ul>
+
+        <ul class="flex items-center">
+            <li>
+                <a href="" class ="p-3">User Name</a>
+            </li>
+            <li>
+                <a href="" class ="p-3">Login</a>
+            </li>
+            <li>
+                <a href="{{ route('register') }}" class ="p-3">Register</a>
+            </li>
+            <li>
+                <a href="" class="p-3">Logout</a>
+            </li>
+        </ul>
     </nav>
+    
     <div class="container">
         @yield('content')
     </div>
