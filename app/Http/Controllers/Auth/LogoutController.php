@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Logout;
 use Illuminate\Http\Request;
 
 class LogoutController extends Controller
@@ -35,7 +36,11 @@ class LogoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(!auth()->user()){
+            return back();
+        }
+        auth()->logout();
+        return redirect()->route('home');
     }
 
     /**

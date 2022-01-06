@@ -442,6 +442,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-1 {
   margin-top: 0.25rem;
 }
+.inline {
+  display: inline;
+}
 .flex {
   display: flex;
 }
