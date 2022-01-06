@@ -1,34 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\User;
-use Facade\Ignition\Exceptions\ViewExceptionWithSolution;
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class PostController extends Controller
 {
-    
-    // this is a constructor contains a middleware for 
-        // the user can't Login just if his a guest
-    public function __construct()
-    {
-        $this->middleware(['guest']);
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        if(auth()->user()) 
-            return redirect()->route('posts');
-        else
-            return view('auth.login');
         
+
+        return view('pages.posts');
     }
 
     /**
@@ -49,22 +36,7 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        
-
-        // Validate the input
-        $request->validate([
-            'email'=>'required|email',
-            'password'=>'required'
-        ]);
-
-        // Validate if the Email exists and the password is correct // Sign In the user
-        if(!auth()->attempt($request->only('email','password'), $request->remember)){
-            // redirect the user back 
-            return back()->with('status','Invalid Email or Password');
-        }
-    
-        // redirecting the user to dashboard
-        return redirect()->route('dashboard');
+        //
     }
 
     /**
@@ -75,7 +47,7 @@ class LoginController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**

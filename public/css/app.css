@@ -442,6 +442,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-1 {
   margin-top: 0.25rem;
 }
+.mr-2 {
+  margin-right: 0.5rem;
+}
 .inline {
   display: inline;
 }
@@ -463,6 +466,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-10\/12 {
   width: 83.333333%;
 }
+.items-end {
+  align-items: flex-end;
+}
 .items-center {
   align-items: center;
 }
@@ -474,6 +480,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .rounded-lg {
   border-radius: 0.5rem;
+}
+.rounded {
+  border-radius: 0.25rem;
 }
 .border-2 {
   border-width: 2px;
@@ -517,6 +526,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 .text-center {
   text-align: center;

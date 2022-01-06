@@ -6,11 +6,20 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+    
+    // this is a constructor contains a middleware for 
+    // the user can't Access the dashboard if he  is not Signed in
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         

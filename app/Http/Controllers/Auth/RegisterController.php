@@ -9,11 +9,19 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+    // this is a constructor contains a middleware for 
+        // the user can't register just if his a guest
+    public function __construct()
+    {
+        $this->middleware(['guest']);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         return view('auth.register');
