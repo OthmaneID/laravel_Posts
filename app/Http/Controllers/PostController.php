@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -13,9 +14,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        
+        //Getting all the posts as a collection and showing per page
+        $posts=Post::latest()->with(['user','likes'])->paginate(20); 
 
-        return view('pages.posts');
+        return view('pages.posts',compact('posts'))->with(request()->input('page'));
     }
 
     /**
@@ -36,7 +38,22 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validating the input
+        $request->validate([
+            'body'=>'required',
+        ]);
+        
+       if(auth()->user())
+       {
+            // creating the Post Using the relationship between the user and the posts
+            $request->user()->posts()->create($request->only('body'));
+
+            // redirecting the user back
+            return back();
+       }
+       return redirect()->route('login');
+       
+        
     }
 
     /**
@@ -79,8 +96,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Post $post)
+    {        
+        $this->authorize('delete',$post);
+        $post->delete();
+        return back();
     }
 }
