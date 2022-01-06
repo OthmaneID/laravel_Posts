@@ -1,13 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class RegisterController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +13,8 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        return view('auth.register');
+        
+        return view('pages.dashboard');
     }
 
     /**
@@ -37,28 +35,7 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate
-        $request->validate([
-            'name'=>'required|max:100',
-            'username'=>'required|max:100',
-            'email'=>'required|email',
-            // the laravel framework is going to look for any _confirmation
-            'password'=>'required|confirmed',
-        ]);
-        // Store the user
-        User::create([
-                'name'=>$request->name,
-                'username'=>$request->username,
-                'email'=>$request->email,
-                'password'=>Hash::make($request->password),
-        ]);
-
-        // Sign in the user  
-        auth()->attempt($request->only('email','password'));
-
-        // redirect the user
-        return redirect()->route('dashboard');
-        
+        //
     }
 
     /**

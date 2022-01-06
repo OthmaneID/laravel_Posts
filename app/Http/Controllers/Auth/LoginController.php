@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Facade\Ignition\Exceptions\ViewExceptionWithSolution;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class RegisterController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,11 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        return view('auth.register');
+        if(auth()->user()) 
+            return redirect()->route('posts');
+        else
+            return view('auth.login');
+        
     }
 
     /**
@@ -37,28 +41,19 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate
+        // Validate the input
         $request->validate([
-            'name'=>'required|max:100',
-            'username'=>'required|max:100',
             'email'=>'required|email',
-            // the laravel framework is going to look for any _confirmation
-            'password'=>'required|confirmed',
+            'password'=>'required'
         ]);
-        // Store the user
-        User::create([
-                'name'=>$request->name,
-                'username'=>$request->username,
-                'email'=>$request->email,
-                'password'=>Hash::make($request->password),
-        ]);
-
-        // Sign in the user  
-        auth()->attempt($request->only('email','password'));
-
-        // redirect the user
+        // Validate if the Email exists and the password is correct // Sign In the user
+        if(!auth()->attempt($request->only('email','password'))){
+            // redirect the user back 
+            return back()->with('status','Invalid Email or Password');
+        }
+    
+        // redirecting the user to dashboard
         return redirect()->route('dashboard');
-        
     }
 
     /**
@@ -69,7 +64,7 @@ class RegisterController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

@@ -2,9 +2,9 @@
 
 
 @section('content')
-    <div>
-        <h1>
+    <div class="flex justify-center">
+        <div class="w-10/12 bg-white p-6 rounded-lg">
             Dashboard
-        </h1>
+        </div>
     </div>
 @endsection

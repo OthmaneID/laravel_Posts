@@ -457,6 +457,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-full {
   width: 100%;
 }
+.w-10\/12 {
+  width: 83.333333%;
+}
 .items-center {
   align-items: center;
 }
