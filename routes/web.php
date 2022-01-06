@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostLikeController;
+use App\Http\Controllers\UserPostController;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,9 @@ Route::post('/logout',[LogoutController::class,'store'])->name('logout');
 
 // Dashboard
 Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard') ;
+
+Route::get('/users/{user}/posts',[UserPostController::class,'index'])->name('users.posts') ;
+
 
 
 Route::get('/posts',[PostController::class,'index'])->name('posts') ;
