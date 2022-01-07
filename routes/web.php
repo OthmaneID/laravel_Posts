@@ -34,6 +34,7 @@ Route::get('/users/{user}/posts',[UserPostController::class,'index'])->name('use
 Route::get('/posts',[PostController::class,'index'])->name('posts') ;
 Route::post('/posts',[PostController::class,'store']);
 Route::delete('/posts/{post}',[PostController::class,'destroy'])->name('posts.destroy');
+Route::get('/posts/{post}',[PostController::class,'show'])->name('posts.show');
 
 
 Route::post('/posts/{post}/likes',[PostLikeController::class,'store'])->name('posts.likes');
