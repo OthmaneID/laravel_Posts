@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        // Appliying the auth middleware just on the store and the destroy methodes
+        $this->middleware(['auth'])->only(['store','destroy']);
+    }
     /**
      * Display a listing of the resource.
      *
